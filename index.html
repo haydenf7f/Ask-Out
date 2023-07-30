@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Her Out</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <object class="cherry-blossom cb-top overlay" data="dark_purple_cherry_blossom\dark_purple_cherry_blossom.svg"></object>
+        <object class="cherry-blossom cb-bottom overlay" data="light_purple_cherry_blossom\light_purple_cherry_blossom.svg"></object>
+        <div class="title-div overlay">
+            <h1 class="title" ref="title">
+                <span v-for="char in 'Would you like to go on a date with me?'.split('')">{{ char }}</span>
+            </h1>
+        </div>        
+        <div class="option yes-text" id="yesOption" @click="optionSelected('yes')" :class="{ selected: selectedOption === 'yes' }">
+            <h1>Yes</h1>
+        </div>
+        <div class="option no-text" id="noOption" @click="optionSelected('no')" :class="{ selected: selectedOption === 'no' }">
+            <h1>No</h1>
+        </div>
+        <transition name="fade">
+            <div class="fullScreen" id="yesFullScreen" v-if="selectedOption === 'yes'">
+                <object class="cherry-blossom cb-top overlay" data="dark_purple_cherry_blossom\dark_purple_cherry_blossom.svg"></object>
+                <object id="cb-dark-invert" class="cherry-blossom cb-invert overlay" data="dark_purple_cherry_blossom\dark_purple_cherry_blossom.svg"></object>
+                <div class="animated-text fadein-text yes-text">
+                    <h1 class="top-text">{{ fullScreenMessage }}</h1>
+                    <p class="bottom-text">{{ fullScreenSubMessage }}</p>
+                </div>
+            </div>
+        </transition>
+        <transition name="fade">
+            <div class="fullScreen" id="noFullScreen" v-if="selectedOption === 'no'">
+                <object class="cherry-blossom cb-bottom overlay" data="light_purple_cherry_blossom\light_purple_cherry_blossom.svg"></object>
+                <object id="cb-light-invert" class="cherry-blossom cb-invert overlay" data="light_purple_cherry_blossom\light_purple_cherry_blossom.svg"></object>
+                <div class="animated-text fadein-text no-text">
+                    <h1 class="top-text">{{ fullScreenMessage }}</h1>
+                    <p class="bottom-text">{{ fullScreenSubMessage }}</p>
+                </div>
+            </div>
+        </transition>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+
