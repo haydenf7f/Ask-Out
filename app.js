@@ -4,7 +4,8 @@ var app = new Vue({
         return {
             selectedOption: null,
             fullScreenMessage: '',
-            fullScreenSubMessage: ''
+            fullScreenSubMessage: '',
+            showCherryBlossoms: false,
         }
     },
     methods: {
@@ -31,6 +32,10 @@ var app = new Vue({
         }              
     },
     mounted: function() {
+        setTimeout(() => {
+            this.showCherryBlossoms = true;
+        }, 1000); // 1 second
+
         this.updateTitleColor();
         window.addEventListener('resize', this.updateTitleColor);
     },

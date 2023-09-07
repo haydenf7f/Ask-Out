@@ -138,6 +138,13 @@ body, html {
   opacity: 0;
 }
 
+.fade-in {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
 .animated-text {
     position: absolute;
     top: 50%;
@@ -146,6 +153,14 @@ body, html {
     animation: slideIn 2s ease-out forwards;
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
 @keyframes slideIn {
     0% {

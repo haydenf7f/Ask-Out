@@ -13,8 +13,8 @@
 </head>
 <body>
     <div id="app">
-        <object class="cherry-blossom cb-top overlay" data="dark_purple_cherry_blossom\dark_purple_cherry_blossom.svg"></object>
-        <object class="cherry-blossom cb-bottom overlay" data="light_purple_cherry_blossom\light_purple_cherry_blossom.svg"></object>
+        <object v-if="showCherryBlossoms" class="cherry-blossom cb-top overlay fade-in" data="dark_purple_cherry_blossom\dark_purple_cherry_blossom.svg"></object>
+        <object v-if="showCherryBlossoms" class="cherry-blossom cb-bottom overlay fade-in" data="light_purple_cherry_blossom\light_purple_cherry_blossom.svg"></object>
         <div class="title-div overlay">
             <h1 class="title" ref="title">
                 <span v-for="char in 'Would you like to go on a date with me?'.split('')">{{ char }}</span>
